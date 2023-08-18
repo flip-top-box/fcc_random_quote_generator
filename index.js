@@ -39,20 +39,20 @@ function App() {
     <div style={{backgroundColor: color, minHeight: "100vh"}}>
     <div className="container pt-5">
         <div className="jumbotron">
-            <div className="card">
+            <div className="card" id="quote-box">
                 <div className="card-header">Inspirational Quotes</div>
                 <div className="card-body">
                     {randomQuote ? (
                         <>
-                        <h5 className="card-title">{randomQuote.author.substring(0, randomQuote.author.indexOf(",")) || "No author"}</h5>
-                        <p className="card-text">&quot;{randomQuote.text}&quot;</p>
+                        <h5 className="card-title" id="author">{randomQuote.author.substring(0, randomQuote.author.indexOf(",")) || "No author"}</h5>
+                        <p className="card-text" id="text">&quot;{randomQuote.text}&quot;</p>
                         </>
                     ) : (
                         <h2>Loading</h2>
                     )}
 
                     <div className="row">
-                        <button onClick={getNewQuote} className="btn btn-default btn-primary ml-3" type="submit">New Quote</button>
+                        <button onClick={getNewQuote} id="new-quote" className="btn btn-default btn-primary ml-3" type="submit">New Quote</button>
                         <a href={
                             "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
                             encodeURIComponent(
@@ -60,7 +60,7 @@ function App() {
                                 randomQuote.author
                             )
                         }
-                        className="btn btn-warning" target="_blank">
+                        id="tweet-quote" className="btn btn-warning" target="_blank">
                             <i class="fa fa-twitter"></i>Tweet
                         </a>
                             
